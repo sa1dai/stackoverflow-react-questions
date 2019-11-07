@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import QuestionList from 'src/components/QuestionList';
 import { Question } from 'src/types';
-import StackoverflowApiService from 'src/StackoverflowApiService';
+import StackoverflowApiService from 'src/services/StackoverflowApiService';
 import 'src/common.css';
 
 interface AppState {
