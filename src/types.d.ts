@@ -12,5 +12,4 @@ export interface Question {
 interface QuestionOwner {
   reputation: number;
   profile_image: string;
-  display_name: string;
 }

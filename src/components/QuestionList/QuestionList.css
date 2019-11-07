@@ -6,7 +6,7 @@
 }
 
 .QuestionList-li {
-    height: 38px; /* +2px от border и получаем реальный height в 40px */
+    min-height: 38px; /* +2px от border и получаем реальный min-height в 40px */
     border: 1px solid black;
     margin: 10px 0;
 }
