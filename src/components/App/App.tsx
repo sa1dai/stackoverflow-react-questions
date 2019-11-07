@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import QuestionList from 'src/QuestionList';
+import QuestionList from 'src/components/QuestionList';
 import { Question } from 'src/types';
 import StackoverflowApiService from 'src/StackoverflowApiService';
 import 'src/common.css';

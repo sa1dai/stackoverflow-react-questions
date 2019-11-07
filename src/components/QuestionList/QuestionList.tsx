@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import 'src/QuestionList.css';
+import './QuestionList.css';
 import 'src/common.css';
 import { Question } from 'src/types';
 
