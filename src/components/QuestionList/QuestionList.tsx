@@ -23,7 +23,11 @@ const QuestionList = (props: QuestionListProps): ReactElement | null => {
   return (
     <ul className="QuestionList-ul">
       {questions.map(question => {
-        return <li key={question.question_id}>{question.title}</li>;
+        return (
+          <li className="QuestionList-li" key={question.question_id}>
+            {question.title}
+          </li>
+        );
       })}
     </ul>
   );

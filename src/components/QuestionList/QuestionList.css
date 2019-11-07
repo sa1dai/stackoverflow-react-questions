@@ -4,3 +4,9 @@
     list-style-type: none;
     padding: 0;
 }
+
+.QuestionList-li {
+    height: 40px;
+    border: 1px solid black;
+    margin: 10px 0;
+}
