@@ -11,11 +11,11 @@ const Avatar = (props: AvatarProps): ReactElement | null => {
     return null;
   }
   return (
-    <span
+    <div
       style={{
-        height: '40px',
-        width: '40px',
-        display: 'inline-block',
+        alignSelf: 'center',
+        height: '35px',
+        width: '35px',
         backgroundImage: backgroundImageUrl,
         backgroundSize: 'cover',
         borderRadius: '50%'

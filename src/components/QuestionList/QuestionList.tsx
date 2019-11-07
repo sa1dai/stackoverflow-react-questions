@@ -29,7 +29,7 @@ const QuestionList = (props: QuestionListProps): ReactElement | null => {
             <Avatar
               backgroundImageUrl={`url(${question.owner.profile_image})`}
             />
-            <span className="QuestionList-li-title">{question.title}</span>
+            <div className="QuestionList-li-title">{question.title}</div>
           </li>
         );
       })}
