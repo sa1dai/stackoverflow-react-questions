@@ -13,8 +13,8 @@ const Avatar = (props: AvatarProps): ReactElement | null => {
   return (
     <span
       style={{
-        height: '38px',
-        width: '38px',
+        height: '40px',
+        width: '40px',
         display: 'inline-block',
         backgroundImage: backgroundImageUrl,
         backgroundSize: 'cover',

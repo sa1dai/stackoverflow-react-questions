@@ -6,7 +6,12 @@
 }
 
 .QuestionList-li {
-    min-height: 38px; /* +2px от border и получаем реальный min-height в 40px */
+    min-height: 40px;
     border: 1px solid black;
     margin: 10px 0;
+}
+
+.QuestionList-li-title {
+    line-height: 40px;
+    margin-left: 5px;
 }
