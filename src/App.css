@@ -1,0 +1,15 @@
+.App-container {
+    height: 100vh;
+}
+
+.container {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.screenCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
