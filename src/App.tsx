@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react';
-import './App.css';
+import './common.css';
 import StackoverflowApiService from './StackoverflowApiService';
 import { Question } from './types';
+import QuestionList from './QuestionList';
 
 interface AppState {
   questions: Question[] | null;
@@ -18,21 +19,24 @@ class App extends React.Component<{}, AppState> {
     const service = new StackoverflowApiService();
     service
       .getReactQuestions()
-      .then(questions => this.setState({ questions }))
+      .then(questions => {
+        if (!Array.isArray(questions)) {
+          throw new Error('Returned questions is not an array');
+        }
+        return this.setState({ questions });
+      })
       .catch(() => this.setState({ error: 'Error occurred!' }));
   }
 
   public render(): ReactNode {
     const { questions, error } = this.state;
     if (error) {
-      return <div className="screenCenter">{error}</div>;
+      return <div className="common-screen-center">{error}</div>;
     }
-    return (
-      <>
-        {!questions && <div className="screenCenter">Loading...</div>}
-        {questions && <div className="container">Hello</div>}
-      </>
-    );
+    if (!questions) {
+      return <div className="common-screen-center">Loading...</div>;
+    }
+    return <QuestionList questions={questions} />;
   }
 }
 

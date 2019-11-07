@@ -1,4 +1,5 @@
 export interface Question {
+  question_id: number; // нужен для key в tsx
   owner: QuestionOwner;
   is_answered: boolean;
   creation_date: number;
