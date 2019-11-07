@@ -7,6 +7,30 @@ interface QuestionListProps {
   questions: Question[];
 }
 
+interface AvatarProps {
+  backgroundImageUrl: string;
+}
+
+const Avatar = (props: AvatarProps): ReactElement | null => {
+  const { backgroundImageUrl } = props;
+  const isGravatar = (url: string): boolean => url.includes('www.gravatar.com');
+  if (isGravatar(backgroundImageUrl)) {
+    return null;
+  }
+  return (
+    <span
+      style={{
+        height: '38px',
+        width: '38px',
+        display: 'inline-block',
+        backgroundImage: backgroundImageUrl,
+        backgroundSize: 'cover',
+        borderRadius: '50%'
+      }}
+    />
+  );
+};
+
 const QuestionList = (props: QuestionListProps): ReactElement | null => {
   const { questions } = props;
   if (!Array.isArray(questions)) {
@@ -25,6 +49,9 @@ const QuestionList = (props: QuestionListProps): ReactElement | null => {
       {questions.map(question => {
         return (
           <li className="QuestionList-li" key={question.question_id}>
+            <Avatar
+              backgroundImageUrl={`url(${question.owner.profile_image})`}
+            />
             {question.title}
           </li>
         );
