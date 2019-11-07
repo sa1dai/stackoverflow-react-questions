@@ -13,7 +13,6 @@ const Avatar = (props: AvatarProps): ReactElement | null => {
   return (
     <div
       style={{
-        alignSelf: 'center',
         height: '35px',
         width: '35px',
         backgroundImage: backgroundImageUrl,
