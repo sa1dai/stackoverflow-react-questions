@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Question } from './types';
+import { Question } from 'src/types';
 
 interface ApiQuestionsData {
   items: Question[];

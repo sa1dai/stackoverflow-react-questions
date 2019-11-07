@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
-import './common.css';
-import StackoverflowApiService from './StackoverflowApiService';
-import { Question } from './types';
-import QuestionList from './QuestionList';
+import QuestionList from 'src/QuestionList';
+import { Question } from 'src/types';
+import StackoverflowApiService from 'src/StackoverflowApiService';
+import 'src/common.css';
 
 interface AppState {
   questions: Question[] | null;

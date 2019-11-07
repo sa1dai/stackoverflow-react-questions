@@ -1,4 +1,3 @@
-// настройки по умолчанию, сгенерированные Creat React App 3
 {
   "compilerOptions": {
     "target": "es5",
@@ -18,7 +17,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": "." // позволяет использовать импорт модулей по абсолютному пути
   },
   "include": [
     "src"
