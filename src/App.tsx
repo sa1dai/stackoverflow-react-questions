@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 import './App.css';
-import { FilteredQuestions } from './types';
 import StackoverflowApiService from './StackoverflowApiService';
+import { Question } from './types';
 
 interface AppState {
-  questions: FilteredQuestions | null;
+  questions: Question[] | null;
   error: string | null;
 }
 
@@ -18,10 +18,7 @@ class App extends React.Component<{}, AppState> {
     const service = new StackoverflowApiService();
     service
       .getReactQuestions()
-      .then(questions => {
-        console.log('questions', questions);
-        return this.setState({ questions });
-      })
+      .then(questions => this.setState({ questions }))
       .catch(() => this.setState({ error: 'Error occurred!' }));
   }
 

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@types/lodash": "^4.14.145",
     "@types/react-dom": "16.9.3",
+    "lodash": "^4.17.15",
     "react": "^16.11.0",
     "react-app-polyfill": "^1.0.4",
     "react-dom": "^16.11.0",

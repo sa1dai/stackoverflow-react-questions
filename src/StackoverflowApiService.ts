@@ -1,37 +1,27 @@
-import { FilteredQuestions } from './types';
+import _ from 'lodash';
+import { Question } from './types';
 
-interface Questions {
+interface ApiQuestionsData {
   items: Question[];
 }
-
-interface Question {
-  owner: QuestionOwner;
-  creation_date: number;
-  link: string;
-  title: string;
-}
-
-interface QuestionOwner {
-  profile_image: string;
-  display_name: string;
-}
-
-const filterQuestions = (questions: Questions): FilteredQuestions => {
-  return questions;
-};
 
 export default class StackoverflowApiService {
   _apiBase =
     'https://api.stackexchange.com/2.2/search?intitle=react&site=stackoverflow';
 
-  getReactQuestions = async (): Promise<FilteredQuestions> => {
+  getReactQuestions = async (): Promise<Question[]> => {
     const res = await fetch(`${this._apiBase}`);
     if (!res.ok) {
       throw new Error(
         `Could not fetch react questions` + `, received ${res.status}`
       );
     }
-    const questions: Questions = await res.json();
-    return filterQuestions(questions);
+    const apiQuestionsData: ApiQuestionsData = await res.json();
+    const questions = apiQuestionsData.items;
+    // фильтр вопросов согласно заданию
+    return _.filter(
+      questions,
+      question => question.is_answered && question.owner.reputation >= 50
+    );
   };
 }

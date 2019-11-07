@@ -1,15 +1,13 @@
-export interface FilteredQuestions {
-  items: FilteredQuestion[];
-}
-
-interface FilteredQuestion {
-  owner: FilteredQuestionOwner;
+export interface Question {
+  owner: QuestionOwner;
+  is_answered: boolean;
   creation_date: number;
   link: string;
   title: string;
 }
 
-interface FilteredQuestionOwner {
+interface QuestionOwner {
+  reputation: number;
   profile_image: string;
   display_name: string;
 }
