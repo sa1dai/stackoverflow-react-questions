@@ -26,10 +26,17 @@ const QuestionList = (props: QuestionListProps): ReactElement | null => {
       {questions.map(question => {
         return (
           <li className="QuestionList-li" key={question.question_id}>
-            <Avatar
-              backgroundImageUrl={`url(${question.owner.profile_image})`}
-            />
-            <div className="QuestionList-li-title">{question.title}</div>
+            <a
+              href={question.link}
+              className="QuestionList-li-a"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Avatar
+                backgroundImageUrl={`url(${question.owner.profile_image})`}
+              />
+              <div className="QuestionList-li-title">{question.title}</div>
+            </a>
           </li>
         );
       })}

@@ -6,10 +6,6 @@ interface AvatarProps {
 
 const Avatar = (props: AvatarProps): ReactElement | null => {
   const { backgroundImageUrl } = props;
-  const isGravatar = (url: string): boolean => url.includes('www.gravatar.com');
-  if (isGravatar(backgroundImageUrl)) {
-    return null;
-  }
   return (
     <div
       style={{
@@ -17,7 +13,10 @@ const Avatar = (props: AvatarProps): ReactElement | null => {
         width: '35px',
         backgroundImage: backgroundImageUrl,
         backgroundSize: 'cover',
-        borderRadius: '50%'
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
+        borderRadius: '50%',
+        marginLeft: '5px'
       }}
     />
   );

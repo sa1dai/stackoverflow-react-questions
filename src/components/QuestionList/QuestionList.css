@@ -9,13 +9,23 @@
 }
 
 .QuestionList-li {
-    display: flex;
-    align-items: center;
-    min-height: 40px;
     border: 1px solid black;
     margin: 10px 0;
 }
 
+.QuestionList-li-a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 40px;
+    text-decoration: none;
+}
+
+.QuestionList-li-a:link {
+    color: black;
+}
+
 .QuestionList-li-title {
     margin-left: 5px;
+    max-width: 90%;
 }
