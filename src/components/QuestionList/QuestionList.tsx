@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import './QuestionList.css';
-import 'src/common.css';
+import 'src/components/common.css';
 import { Question } from 'src/types';
 
 interface QuestionListProps {

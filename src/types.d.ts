@@ -1,3 +1,5 @@
+// Здесь хранятся типы, использующиеся более чем в одном файле
+
 export interface Question {
   question_id: number; // нужен для key в tsx
   owner: QuestionOwner;
