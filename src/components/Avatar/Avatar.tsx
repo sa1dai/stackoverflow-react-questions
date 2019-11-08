@@ -4,7 +4,7 @@ interface AvatarProps {
   backgroundImageUrl: string;
 }
 
-const Avatar = (props: AvatarProps): ReactElement | null => {
+const Avatar = (props: AvatarProps): ReactElement => {
   const { backgroundImageUrl } = props;
   return (
     <div
