@@ -3,6 +3,7 @@ import QuestionList from 'src/components/QuestionList';
 import { Question } from 'src/types';
 import StackoverflowApiService from 'src/services/StackoverflowApiService';
 import 'src/components/common.css';
+import './App.css';
 import _ from 'lodash';
 
 interface AppState {
@@ -69,11 +70,13 @@ class App extends React.Component<{}, AppState> {
     const { newQuestionsFirst } = this.state;
     return (
       <>
-        <button className="sort-button" onClick={this.toggleSort}>
-          {newQuestionsFirst
-            ? 'Sort: old questions first'
-            : 'Sort: new questions first'}
-        </button>
+        <div className="App-header">
+          <button className="App-header-sort-button" onClick={this.toggleSort}>
+            {newQuestionsFirst
+              ? 'Sort: old questions first'
+              : 'Sort: new questions first'}
+          </button>
+        </div>
         <QuestionList questions={questions} />
       </>
     );
