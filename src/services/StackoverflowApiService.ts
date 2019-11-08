@@ -6,10 +6,10 @@ interface ApiQuestionsData {
 }
 
 export default class StackoverflowApiService {
-  _apiBase =
+  private _apiBase =
     'https://api.stackexchange.com/2.2/search?intitle=react&site=stackoverflow';
 
-  getReactQuestions = async (): Promise<Question[]> => {
+  public getReactQuestions = async (): Promise<Question[]> => {
     const res = await fetch(`${this._apiBase}`);
     if (!res.ok) {
       throw new Error(
