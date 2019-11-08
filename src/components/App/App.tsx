@@ -21,6 +21,17 @@ class App extends React.Component<{}, AppState> {
     };
   }
 
+  private static getSortedQuestions(
+    questions: Question[] | null,
+    newQuestionsFirst: boolean
+  ): Question[] {
+    return _.orderBy(
+      questions,
+      ['creation_date'],
+      [newQuestionsFirst ? 'desc' : 'asc']
+    );
+  }
+
   async componentDidMount(): Promise<void> {
     const service = new StackoverflowApiService();
     service
@@ -30,15 +41,22 @@ class App extends React.Component<{}, AppState> {
           throw new Error('Returned questions is not an array');
         }
         const { newQuestionsFirst } = this.state;
-        const sortedQuestions = _.orderBy(
+        const sortedQuestions = App.getSortedQuestions(
           questions,
-          ['creation_date'],
-          [newQuestionsFirst ? 'desc' : 'asc']
+          newQuestionsFirst
         );
         return this.setState({ questions: sortedQuestions });
       })
       .catch(() => this.setState({ error: 'Error occurred!' }));
   }
+
+  private toggleSort = (): void => {
+    const { questions, newQuestionsFirst } = this.state;
+    this.setState({
+      questions: App.getSortedQuestions(questions, !newQuestionsFirst),
+      newQuestionsFirst: !newQuestionsFirst
+    });
+  };
 
   public render(): ReactNode {
     const { questions, error } = this.state;
@@ -48,9 +66,14 @@ class App extends React.Component<{}, AppState> {
     if (!questions) {
       return <div className="common-screen-center">Loading...</div>;
     }
+    const { newQuestionsFirst } = this.state;
     return (
       <>
-        <button>hello</button>
+        <button className="sort-button" onClick={this.toggleSort}>
+          {newQuestionsFirst
+            ? 'Sort: old questions first'
+            : 'Sort: new questions first'}
+        </button>
         <QuestionList questions={questions} />
       </>
     );
